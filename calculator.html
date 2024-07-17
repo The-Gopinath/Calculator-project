@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="main-main">
+        <div class="main-box">
+            <input type="text" class="text-box" onkeydown="
+                if(event.key=== 'Enter'){
+                    equalTo();
+                }
+                ">
+            <p class="top-para">
+                <button class="no-btn" onclick="
+                    entering(9);
+                    ">9</button>
+                <button class="no-btn" onclick="
+                entering(8);
+                ">8</button>
+                <button class="no-btn" onclick="
+                entering(7);
+                ">7</button>
+                <button class="clr-btn" onclick="
+                clear1();
+                ">clear</button>
+                <button class="clr-btn" onclick="
+                del();
+                "><i class="fa-solid fa-arrow-left"></i></button>
+            </p>
+            <p>
+                <button class="no-btn" onclick="
+                entering(6);
+                ">6</button>
+                <button class="no-btn" onclick="
+                entering(5);
+                ">5</button>
+                <button class="no-btn" onclick="
+                entering(4);
+                ">4</button>
+                <button class="sign-btn" onclick="
+                entering('/');
+                ">/</button>
+                <button class="sign-btn" onclick="
+                entering('*');
+                ">*</button>
+            </p>
+            <p>
+                <button class="no-btn" onclick="
+                entering(3);
+                ">3</button>
+                <button class="no-btn" onclick="
+                entering(2);
+                ">2</button>
+                <button class="no-btn" onclick="
+                entering(1);
+                ">1</button>
+                <button class="sign-btn" onclick="
+                entering('+');
+                ">+</button>
+                <button class="sign-btn" onclick="
+                entering('-');
+                ">-</button>
+            </p>
+            <p>
+                <button class="no-btn" onclick="
+                entering(0);
+                ">0</button>
+                <button class="no-btn" onclick="
+                entering('00');
+                ">00</button>
+                <button class="no-btn" onclick="
+                entering('.');
+                ">.</button>
+                <button class="eql-btn" onclick="
+                equalTo();
+                ">=</button>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+    let text=document.querySelector(".text-box").value;
+    function entering(char){
+        let text=document.querySelector(".text-box").value;
+        text+=char;
+        document.querySelector(".text-box").value=text;
+    }
+
+    function equalTo(){
+        let text=document.querySelector(".text-box").value;
+        document.querySelector(".text-box").value=eval(text);
+    }
+
+    function del(){
+        let text=document.querySelector(".text-box").value;
+        document.querySelector(".text-box").value=text.slice(0,-1);
+    }
+
+    function clear1(){
+        document.querySelector(".text-box").value="";
+    }
+</script>
